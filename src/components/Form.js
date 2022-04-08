@@ -1,10 +1,15 @@
 import React from "react";
 
+import useSound from "use-sound";
+import moreWork from './../assets/what-more-work.mp3'; // Your sound file path here
+
 const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     const inputTextHandler = (e) => {
-        console.log(e.target.value);
         setInputText(e.target.value);
     };
+
+    const [playWork] = useSound(moreWork);
+
     const submitTodoHandler = (e) => {
         e.preventDefault();
         setTodos([
@@ -12,6 +17,7 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
             { text: inputText, completed: false, id: Math.random() * 1000 }
         ]);
         setInputText("");
+        playWork();
     }
     const statusHandler = (e) => {
         setStatus(e.target.value);
