@@ -3,7 +3,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Hello react</h1>
+      <header>
+        <h1>Vinod's Todo List</h1>
+      </header>
     </div>
   );
 }
